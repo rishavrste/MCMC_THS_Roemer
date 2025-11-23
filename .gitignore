@@ -1,2 +1,8 @@
 final_results/inj_final_*.txt
 results/*
+*.h5
+*.txt
+*.dat
+*.json
+*.pickle
+.venv/*

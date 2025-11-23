@@ -62,7 +62,8 @@ parser.add_argument('output', type=str)
 # Parse the arguments
 args = parser.parse_args()
 
-data = np.loadtxt(args.output+"/"+args.output +"_triggers_refined.dat")
+#changed for running on my pc
+data = np.loadtxt("lisaHTI/"+args.output+"/"+args.output +"_triggers_refined.dat")
 T_burst=data[:,0]-data[0,0]
 T_burst-=T_burst[0]
 e_true = args.eccen 
@@ -184,6 +185,6 @@ figure = corner.corner(
 )
 
 corner.overplot_lines(figure, truths, color="C1")
-
+np.savetxt(f"{outdir}/{label}_samples.txt", samples)
 plt.savefig(f"{outdir}/{label}_dynesty.png", dpi=300, bbox_inches="tight")
 plt.close(figure)
